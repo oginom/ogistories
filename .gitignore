@@ -1,0 +1,7 @@
+
+/db/mysql/work/*
+!/db/mysql/work/.gitkeep
+
+/back/instance/config.py
+
+.python-version

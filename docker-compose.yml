@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+
+  back:
+    build: ./back
+    image: back
+    container_name: back
+    links:
+      - db
+    expose:
+      - 5000
+#    networks:
+#      - nginx_network
+
+  front:
+    build: ./front
+    image: front
+    container_name: front
+    links:
+      - back
+    ports:
+      - 80:80
+    depends_on:
+      - back
+#    networks:
+#      - nginx_network
+
+  db:
+    image: mysql:5.7
+    container_name: db
+    volumes:
+      - ./db/mysql/work:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: root
+      MYSQL_ROOT_PASSWORD: passwd
+
+#networks:
+#  nginx_network:
+#    driver: bridge

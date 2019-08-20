@@ -5,6 +5,22 @@
 みんなで文を書いていって物語を作るアプリ。
 のつもりだったが短歌を作るアプリになりそう。
 
+## env
+
+docker-compose
+
+### frontend
+
+nginx + Vue.js + Bootstrap
+
+### backend
+
+gunicorn + Flask
+
+### database
+
+MySQL
+
 ## run
 
 ```[bash]
